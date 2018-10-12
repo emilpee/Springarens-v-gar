@@ -4,8 +4,19 @@
 function knightMoves(sq) {
 
 var possibleMoves = []; // Array som lagrar möjliga drag
-var xAxel = ["A", "B", "C", "D", "E", "F", "G", "H"];
-var yAxel = [1, 2, 3, 4, 5, 6, 7, 8];
+var xAxel = ["A", "B", "C", "D", "E", "F", "G", "H"]; // Horisontell linje på schackbrädet
+    var x = xAxel.indexOf(sq[0]) + 1; // Skapar position på x-axeln
+    var y = parseInt(sq[1]); // Skapar position på y-axeln
+    
+    // Skapa ny array med hjälp av filter, som visar alla möjliga drag på x-axeln
+    var xDrag = [x + 2, x - 2, x + 1, x - 1].filter(function(thePosition) { 
+        return (thePosition > 0 && thePosition < 9);
+    });
+    
+    // Skapa ny array med hjälp av filter, som visar alla möjliga drag på y-axeln
+    var yDrag = [y + 2, y - 2, y + 1, y - 1].filter(function(thePosition) {
+        return (thePosition > 0 && thePosition < 9);
+    });
 
 }
 
