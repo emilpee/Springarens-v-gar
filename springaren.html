@@ -18,7 +18,20 @@ var xAxel = ["A", "B", "C", "D", "E", "F", "G", "H"]; // Horisontell linje på s
         return (thePosition > 0 && thePosition < 9);
     });
 
+    // Loop som går igenom alla möjliga drag. Max 8 st för x-axeln (i) respektive y-axeln (j)
+    for (var i = 0; i < 8; i++) {
+        for (var j = 0; j < 8; j++) {
+            if (Math.abs(x - xDrag[i]) + Math.abs(y - yDrag[j]) === 3 && // Visar att absolut värde av x & y ska vara 3 för att matcha springarens rörelse.
+                !possibleMoves.includes([xDrag, yDrag])) {  // Lägg till ett drag om det är giltigt och inte redan existerar.
+                  console.log('Möjligt drag: ', [xDrag[i], yDrag[j]]);
+                  possibleMoves.push([xDrag, yDrag]);
+                } 
+            }
+        }
+    return possibleMoves.length; 
 }
+ 
+console.log(knightMoves("A1")); // Skriv ut valfri schackruta och visa antal möjliga drag från angiven ruta
 
 </script>
 </html>
